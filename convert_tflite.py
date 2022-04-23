@@ -35,6 +35,7 @@ def save_tflite():
     converter.target_spec.supported_types = [tf.compat.v1.lite.constants.FLOAT16]
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]
     converter.allow_custom_ops = True
+    converter.experimental_enable_resource_variables = True
   elif FLAGS.quantize_mode == 'int8':
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
