@@ -40,6 +40,7 @@ def save_tflite():
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.OpsSet.SELECT_TF_OPS]
     converter.allow_custom_ops = True
+    converter.experimental_enable_resource_variables = True
     converter.representative_dataset = representative_data_gen
 
   tflite_model = converter.convert()
